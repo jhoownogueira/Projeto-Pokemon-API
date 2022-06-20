@@ -1,0 +1,23 @@
+footer {
+    width: 100%;
+    background-color: #3F5DB3;
+    padding: 6.7rem 0 6.5rem 0;
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .text {
+        h3 {
+            color: #ffffff;
+        }
+        p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 1.4rem;
+            line-height: 180%;
+            color: #ffffffcc;
+        }
+    }
+
+}
