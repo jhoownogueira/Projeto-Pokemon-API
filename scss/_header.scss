@@ -16,4 +16,16 @@ header {
             color: #FFFFFF;
         }
     }
+    @media(max-width: 560px) {
+        height: 8.2rem;
+        img {
+            max-width: 12.9rem;
+        }
+        .container {
+            justify-content: center;
+            p {
+                display: none;
+            }
+        }
+    }
 }
