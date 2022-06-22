@@ -19,5 +19,18 @@ footer {
             color: #ffffffcc;
         }
     }
+    @media(max-width: 560px) {
+        .container {
+            justify-content: center;
+            img {
+                display: none;
+            }
+        }
+        .text {
+            h3, p {
+                text-align: center;
+            }
+        }
+    }
 
 }
