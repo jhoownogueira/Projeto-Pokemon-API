@@ -359,6 +359,9 @@
         margin: 0 auto;
         @include centerTotalFlex;
         margin-bottom: 1.4rem;
+        .thumb-img {
+            max-width: 14.2rem;
+        }
         &::after {
             content: '';
             width: 16.5rem;

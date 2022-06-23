@@ -1,7 +1,7 @@
 {
-  "name": "codeboost-gulp",
+  "name": "pokemon-gulp",
   "version": "1.0.0",
-  "description": "Projeto criando com codeboost",
+  "description": "Consumindo API Pokemon",
   "main": "index.js",
   "author": "Jhonata Nogueira",
   "license": "MIT",
