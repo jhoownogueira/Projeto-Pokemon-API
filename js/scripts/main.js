@@ -178,3 +178,15 @@ axios({
     }
   })
 })
+
+// Load More Pokemons
+
+const btnLoadMore = document.getElementById('js-btn-load-more');
+let countPaginationPokemons = 10; 
+
+function showMorePokemons() {
+    listingPokemons(`https://pokeapi.co/api/v2/pokemon?limit=9&offset=${countPaginationPokemons}`);
+    countPaginationPokemons = countPaginationPokemons + 9;
+}
+
+btnLoadMore.addEventListener('click', showMorePokemons);
