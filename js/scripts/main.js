@@ -8,6 +8,7 @@ var slide_hero = new Swiper(".slide-hero", {
 
 const cardPokemon = document.querySelectorAll('.js-open-details-pokemon');
 const btnCloseCard = document.querySelector('.js-close-details-pokemon');
+const countPokemons = document.getElementById('js-count-pokemons');
 
 cardPokemon.forEach(card => {
 card.addEventListener('click', openDetailsPokemon);
@@ -75,8 +76,6 @@ function listingPokemons(urlApi) {
     url: urlApi,
   })
   .then((response) => {
-    const countPokemons = document.getElementById('js-count-pokemons');
-
     const { results, next, count } = response.data;
 
     countPokemons.innerText = count;
@@ -271,4 +270,61 @@ function filterByType() {
   }
 
  
+}
+
+// Buscar Pokemons
+
+const btnSearch = document.getElementById('js-btn-search');
+const inputSearch = document.getElementById('js-input-search');
+
+btnSearch.addEventListener('click', searchPokemon);
+
+inputSearch.addEventListener('keyup', (e) => {
+  if(e.code === 'Enter') {
+    searchPokemon();
+  }
+})
+
+function searchPokemon() {
+  let valueInput = inputSearch.value.toLowerCase(); 
+  const typeFilter = document.querySelectorAll('.type-filter');
+
+  typeFilter.forEach(type => {
+    type.classList.remove('active');
+  })
+  
+  axios( {
+    method: 'GET',
+    url: `https://pokeapi.co/api/v2/pokemon/${valueInput}`
+  })
+  .then(response => {
+    areaPokemons.innerHTML = '';
+    btnLoadMore.style.display = 'none';
+    countPokemons.textContent = 1;
+
+    const { name, id, sprites, types } = response.data;
+        
+        const infoCard = {
+          nome: name,
+          code: id,
+          image: sprites.other.dream_world.front_default,
+          type: types[0].type.name
+
+        }
+        createCardPokemon(infoCard.code, infoCard.type, infoCard.nome, infoCard.image);
+
+        const cardPokemon = document.querySelectorAll('.js-open-details-pokemon');
+        cardPokemon.forEach(card => {
+          card.addEventListener('click', openDetailsPokemon)
+        })
+  })
+  .catch((error) => {
+    if(error.response) {
+      areaPokemons.innerHTML = '';
+      btnLoadMore.style.display = 'none';
+      countPokemons.textContent = 0;
+      alert('Não foi encontrado nenhum Pokemon');
+    }
+  })
+  
 }
