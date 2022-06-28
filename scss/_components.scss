@@ -515,6 +515,20 @@
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s;
+    &[type-pokemon-modal="water"] {
+        .box {
+            .left-container {
+                background-image: url('../img/bg-types/water.svg');
+            }
+        }
+    }
+    &[type-pokemon-modal="fire"] {
+        .box {
+            .left-container {
+                background-image: url('../img/bg-types/fire.svg');
+            }
+        }
+    }
     &[type-pokemon-modal="grass"] {
         .box {
             .left-container {
@@ -687,6 +701,7 @@
         }
         .right-container {
             padding: 3.5rem 7.2rem 2.9rem 7.4rem;
+            width: 100%;
             .name {
                 margin-bottom: 1rem;
                 display: flex;
@@ -720,7 +735,7 @@
             .info {
                 display: flex;
                 align-items: flex-start;
-                margin-bottom: 3.2rem;
+                margin-bottom: 1.5rem;
                 li {
                     &:not(:first-child) {
                         margin-left: 4.8rem;
@@ -745,7 +760,7 @@
                 }
             }
             .weak {
-                margin-bottom: 3.2rem;
+                margin-bottom: 1rem;
                 h4 {
                     font-family: 'Inter', sans-serif;
                     font-weight: 600;
@@ -758,12 +773,11 @@
                 ul {
                     width: 100%;
                     display: flex;
-                    align-items: flex-start;
+                    align-items: center;
                     flex-wrap: wrap;
                     li {
-                        &:not(:first-child) {
-                            margin-left: 1rem;
-                        }
+                        margin-right: 1rem;
+                        margin-bottom: 1rem;
                     }
                 }
             }
